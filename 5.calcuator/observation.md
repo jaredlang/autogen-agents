@@ -19,3 +19,8 @@ Annotated is something new.
 ```python
 Annotated[Operator, "operator"]
 ```
+
+## The calculator is smart
+
+It understands the calculation sequence even thought it is not specified in the code.
+It is built in the LLM.

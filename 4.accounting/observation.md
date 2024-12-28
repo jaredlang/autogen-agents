@@ -1,4 +1,6 @@
-# Observation on Code Generation
+# Observation on 4.accounting 
+
+## Code Generation
 
 1. The code generation is still pretty poor with gpt-4.
 2. I had to specifically tell it "When you need to retrieve stock prices, use the yfinance python library"
