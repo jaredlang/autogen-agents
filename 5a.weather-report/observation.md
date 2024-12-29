@@ -7,14 +7,14 @@
   b. I compared the response from GPT4 with that Claude. The latter is better structured.
   c. Interestingly, when the tool returns an error, the LLM tries to put a nice spin for a better response, like a human admitting an error.
   d. Claude is more expensive than GPT4.
-2. This example calls OpenWeather API to retrieve the weather data.
+2. This example calls [OpenWeatherMap API](https://openweathermap.org/api) to retrieve the weather data.
   a. The unit is hard-coded.
-  b. TODO: That can be obtained by either API or LLM.
+  b. TODO: That should be obtained from either API or LLM.
   c. LLM serves as a data scraper. If there was an API, that should provide more accurate and structured factual data.
   d. The business value of data scrapers is less development on both API producers and consumers.
-3. This example is also a rewrite of another example weather-agent, which was written in Feb-2024 with LangChain Agent model.
+3. This example is also a rewrite of another example [weather-agent](https://github.com/jaredlang/weather-agent), which was written in Feb-2024 with LangChain Agent model.
   a. AutoGen is easier to understand and has excellent documentation.
-  b. LangChain feels weird and unnatural.
+  b. LangChain feels weird and unnatural. When a developer feels that way, imagine how non-developers would feel.
 
 ## Calling Sequence
 
@@ -24,7 +24,7 @@ user_proxy ->> meteorologist: What's the weather like in Houston?
 meteorologist -->> user_proxy: ~Need to use the weather tool.~
 meteorologist ->> get_weather: argument-"Houston"
 get_weather -->> meteorologist: weather data in json
-meteorologist --x user_proxy: human readable text
+meteorologist --x user_proxy: human readable weather report
 ```
 
 ## GPT4 and Claude Outputs
