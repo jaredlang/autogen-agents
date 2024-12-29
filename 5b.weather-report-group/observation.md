@@ -38,3 +38,10 @@ meteorologist --x user_proxy: human readable weather report
 2. AgentOps is sooo simple to use. Instrumentation is not intrusive and takes 3 lines of code.
 3. The drilldown dashboard is intutive and very easy to track all activities, agents and flows.
 4. So much better than LangSmith. I love it!
+
+## Add AutoGen Runtime logging
+
+1. AutoGen has a structured way of logging.
+2. What AgentOps displays comes from the runtime logging. AgentOps gives a nice UI and an easy way to explore. 
+3. AgentOps also supports other agent frameworks too. But they are based on similar data models. The instructmentation layer is different.
+4. What a smart way to start up.

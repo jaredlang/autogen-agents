@@ -1,7 +1,8 @@
 import os
 from autogen import ConversableAgent
-from autogen import register_function
 from autogen import Cache
+from autogen import register_function
+from autogen import runtime_logging
 
 import agentops
 
@@ -137,10 +138,19 @@ def report_weather(location):
 
 if __name__ == "__main__":
 
-    location = "Houston"
+    location = "Baltimore"
 
+    # Start logging
+    logging_session_id = runtime_logging.start(config={"dbname": "autogen-logs.db"})
+    print("Logging session ID: " + str(logging_session_id))
+
+    # Start AgentOps Observation
     agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"), default_tags=["weather-report-group", location])
 
     report_weather(location)
 
+    # End AgentOps Observation
     agentops.end_session("Success")
+
+    # Stop logging
+    runtime_logging.stop()
