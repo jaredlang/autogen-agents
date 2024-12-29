@@ -16,7 +16,13 @@ meteorologist --x user_proxy: human readable weather report
 
 ## Observations
 
-1. metrologist's input is not taken in consideration. Even after I comment out the metrologist, it doesn't affect the response.
-2. meteorologist is able to infer the local standard unit by itself.
-3. It makes the LLM reply in the local units by adding to the system prompt "using its local standard units of measure." I found out this from its LLM context. Need to speak its language for a quality response, just like a human.
-4. There are great similiarities to a conversation among humans.
+1. metrologist's input is not taken in consideration.
+  a. Even after I comment out the metrologist, it doesn't affect the response.
+  b. meteorologist is able to infer the local standard unit by itself.
+  c. It makes the LLM reply in the local units by adding to the system prompt "using its local standard units of measure." I found out this from its LLM context. Need to speak its language for a quality response, just like a human.
+2. There are great similiarities to a conversation among humans.
+
+## Need a different use case for group chats
+
+1. where the second chat requires the output of the first one.
+2. it is necessary to use multiple tools
