@@ -26,3 +26,15 @@ meteorologist --x user_proxy: human readable weather report
 
 1. where the second chat requires the output of the first one.
 2. it is necessary to use multiple tools
+
+## Add cache
+
+1. This is a huge cost saver for learning and debugging.
+2. AutoGen cache is deterministic, unlike OpenAI's seed. Here is the [reference](https://microsoft.github.io/autogen/0.2/docs/topics/llm-caching#difference-between-cache_seed-and-openais-seed-parameter)
+
+## Add AgentOps for Observability
+
+1. LangSmith is also promoted for observability. AgentOps is a direct competitor.
+2. AgentOps is sooo simple to use. Instrumentation is not intrusive and takes 3 lines of code.
+3. The drilldown dashboard is intutive and very easy to track all activities, agents and flows.
+4. So much better than LangSmith. I love it!

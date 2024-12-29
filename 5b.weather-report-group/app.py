@@ -1,6 +1,9 @@
 import os
 from autogen import ConversableAgent
 from autogen import register_function
+from autogen import Cache
+
+import agentops
 
 from typing import Annotated
 
@@ -114,20 +117,30 @@ def report_weather(location):
         description="get weather at a given location",
     )
 
-    user_proxy.initiate_chats([
-        {
-            "recipient": metrologist,
-            "message": f"what are the local units of measure in {location}?",
-            "max_turns": 1,
-            "summary_method": "last_msg",
-        },
-        {
-            "recipient": meteorologist, 
-            "message": f"Describe the weather in {location} using its local standard units of measure.",
-            "max_turns": 2,
-            "summary_method": "last_msg",
-        },
-    ])
+    with Cache.disk() as cache:
+        user_proxy.initiate_chats([
+            {
+                "recipient": metrologist,
+                "message": f"what are the local units of measure in {location}?",
+                "max_turns": 1,
+                "cache": cache,
+                "summary_method": "last_msg",
+            },
+            {
+                "recipient": meteorologist, 
+                "message": f"Describe the weather in {location} using its local standard units of measure.",
+                "max_turns": 2,
+                "cache": cache,
+                "summary_method": "last_msg",
+            },
+        ])
 
+if __name__ == "__main__":
 
-report_weather("Denver")
+    location = "Houston"
+
+    agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"), default_tags=["weather-report-group", location])
+
+    report_weather(location)
+
+    agentops.end_session("Success")
