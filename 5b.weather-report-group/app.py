@@ -118,16 +118,16 @@ def report_weather(location):
         {
             "recipient": metrologist,
             "message": f"what are the local units of measure in {location}?",
-            "max_turns": 2,
+            "max_turns": 1,
             "summary_method": "last_msg",
         },
         {
             "recipient": meteorologist, 
-            "message": f"Describe the weather in {location} in the local units of measure? ",
+            "message": f"Describe the weather in {location} using its local standard units of measure.",
             "max_turns": 2,
             "summary_method": "last_msg",
         },
     ])
 
-if __name__ == "__main__": 
-    report_weather("Beijing")
+
+report_weather("Denver")
