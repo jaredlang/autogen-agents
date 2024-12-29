@@ -28,7 +28,7 @@ def get_weather(location: Annotated[str, "Houston"]) -> str:
     """Retrieves the current weather data in a given city using the OpenWeatherMap API.
 
     Args:
-        city (str): The name of the city to get the weather for.
+        location (str): The name of the location to get the weather for.
         units (str): use metric for Celsius, imperial for Fahrenheit.
 
     Returns:
@@ -77,7 +77,9 @@ def get_weather(location: Annotated[str, "Houston"]) -> str:
 
 meteorologist = ConversableAgent(
     "meteorologist",
-    system_message="you are a meteorologist. Use your weather knowledge and language skills to describe the weather condition.",
+    system_message="you are a meteorologist. "
+        + " Use your weather knowledge and language skills to describe the weather condition."
+        + " You must either Celsius or Fahrenheit according to the local custom. Do NOT use both units. ",
     human_input_mode="NEVER",
     llm_config=claude_llm_config,
 )
@@ -92,17 +94,17 @@ user_proxy = ConversableAgent(
 
 register_function(
     get_weather,
-    caller=meterologist,
+    caller=meteorologist,
     executor=user_proxy,
     name="get_weather",
     description="get weather at a given location",
 )
 
 user_proxy.initiate_chat(
-    meterologist,
+    meteorologist,
     # --> This message causes an infinite loop
     # This answer is more descriptive.
-    message="What's the weather like in Houston?",
+    message="What's the weather like in London?",
     # --> This message gets a short answer, exactly the same as the function return.
     # message="Tell me the weather in Houston and then say TERMINATE",
     max_turns=2,

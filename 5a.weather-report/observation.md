@@ -6,7 +6,7 @@
   a. This example has more worldly meaning. Yesterday several tornados swept across Houston and left a trail of damange.
   b. I compared the response from GPT4 with that Claude. The latter is better structured.
   c. Interestingly, when the tool returns an error, the LLM tries to put a nice spin for a better response, like a human admitting an error.
-  d. Claude is more expensive than GPT4.
+  d. Claude is more expensive than GPT4, but slower.
 2. This example calls [OpenWeatherMap API](https://openweathermap.org/api) to retrieve the weather data.
   a. The unit is hard-coded.
   b. TODO: That should be obtained from either API or LLM.
