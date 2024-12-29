@@ -14,7 +14,7 @@
   d. The business value of data scrapers is less development on both API producers and consumers.
 3. This example is also a rewrite of another example [weather-agent](https://github.com/jaredlang/weather-agent), which was written in Feb-2024 with LangChain Agent model.
   a. AutoGen is easier to understand and has excellent documentation.
-  b. LangChain feels weird and unnatural. When a developer feels that way, imagine how non-developers would feel.
+  b. LangChain feels weird and unnatural. When someone writing the code on his new year's holidays feels that way, imagine how non-developers would feel.
 
 ## Calling Sequence
 

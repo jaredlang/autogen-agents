@@ -79,7 +79,8 @@ meteorologist = ConversableAgent(
     "meteorologist",
     system_message="you are a meteorologist. "
         + " Use your weather knowledge and language skills to describe the weather condition."
-        + " You must either Celsius or Fahrenheit according to the local custom. Do NOT use both units. ",
+        # + " You must use the imperial units in your response. ", # --> This still outputs both units
+        + " You must use Fahrenheit according to the local custom. Do NOT use both units. ",
     human_input_mode="NEVER",
     llm_config=claude_llm_config,
 )
@@ -104,7 +105,7 @@ user_proxy.initiate_chat(
     meteorologist,
     # --> This message causes an infinite loop
     # This answer is more descriptive.
-    message="What's the weather like in London?",
+    message="What's the weather like in Beijing?",
     # --> This message gets a short answer, exactly the same as the function return.
     # message="Tell me the weather in Houston and then say TERMINATE",
     max_turns=2,
