@@ -6,7 +6,7 @@ Besides, it includes someone with access to confidential material. That's common
 
 ## How to utilize the RAG?
 
-1. Use Chroma as Vector DB.
+1. Use Chroma as Vector DB. The sqlite3 and other db files are under /tmp.
 2. Add the agent with access to the confidential material into the chat.
 3. Have another agent call that special agent.
 4. Add a critic agent for quality check. Even though the quality is less reliable due to LLM, but the step is necessary.
