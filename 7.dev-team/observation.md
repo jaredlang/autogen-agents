@@ -1,6 +1,6 @@
 # Observations on 7.Development Team
 
-The dev team is made up of agents with specific roles. 
+The dev team is made up of agents with specific roles.
 It is to go through a typical real-world workflow: planning, review, create and execute.
 Besides, it includes someone with access to confidential material. That's common in today's business world.
 
