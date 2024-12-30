@@ -141,7 +141,7 @@ if __name__ == "__main__":
     location = "Baltimore"
 
     # Start logging
-    logging_session_id = runtime_logging.start(config={"dbname": "autogen-logs.db"})
+    logging_session_id = runtime_logging.start(config={"dbname": "weather-report-group-logs.db"})
     print("Logging session ID: " + str(logging_session_id))
 
     # Start AgentOps Observation
