@@ -11,6 +11,11 @@ gpt4o_llm_config = {
     "config_list": [{"model": "gpt-4o", "api_key": os.getenv("OPENAI_API_KEY")}]
 }
 
+# GPT o1 model is not available for API.
+gpto1_llm_config = {
+    "config_list": [{"model": "gpt-o1", "api_key": os.getenv("OPENAI_API_KEY")}]
+}
+
 claude_llm_config = {
     "config_list": [
         {
