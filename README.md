@@ -11,3 +11,6 @@ I followed AutoGen Tutorial <https://microsoft.github.io/autogen/0.2/docs/tutori
   * KYC review
 * software development team consists of product manager, engineering, executor and reviewer (tester)
 
+## Model the agent conversation
+
+* it seems helpful to model the agent conversation based on how the team communicate with each other in the real world.
