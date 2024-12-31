@@ -1,5 +1,7 @@
 # Observation on 1.stock-joke
 
+This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/introduction>.
+
 ## define agents, at least two for a chat
 
 - UserProxyAgent is the proxy to the human input.

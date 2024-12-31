@@ -2,6 +2,7 @@
 
 ## app-flat.py
 
+1. This app is based on <https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_auto_feedback_from_code_execution>
 1. When "user assistant" is assigned to the name of user_proxy, the app throws an error. see [user-assistant-error-msg.txt](./user-assistant-error-msg.txt). Why???
 2. The error is gone when I used "user_proxy" or "boss". Is "Assistant" a reserved word?
 3. I also noticed the same error when autogen doesn't know which spoker should be selected.
@@ -12,9 +13,10 @@
 
 ## app-som.py
 
-1. Introduce a dev manager that "contain" the dev chat within the dev agents, and report the result to user_proxy.
-2. Keep getting the mysterious errors. See [som-eng-error-msg.txt](./som-eng-error-msg.txt) when using only engineer.
-3. A similar error. See [som-pm-error-msg.txt](./som-pm-error-msg.txt) when adding product manager.
+1. It is based on this example <https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_society_of_mind>
+2. Introduce a dev manager that "contain" the dev chat within the dev agents, and report the result to user_proxy.
+3. Keep getting the mysterious errors. See [som-eng-error-msg.txt](./som-eng-error-msg.txt) when using only engineer.
+4. A similar error. See [som-pm-error-msg.txt](./som-pm-error-msg.txt) when adding product manager.
 
 ## app-flat.py update-1
 

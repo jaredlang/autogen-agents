@@ -1,5 +1,7 @@
 # Observation on 2.comedian-duo
 
+This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/chat-termination>.
+
 ## How to control the termination of a chat?
 
 On each agent, set the termination config.

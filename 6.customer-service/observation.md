@@ -1,5 +1,7 @@
 # Observations on 6.customer-service
 
+This app is based on the sequential chat in <https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_memory_using_mem0>.
+
 ## memory for agents
 
 Use [mem0](https://mem0.ai/) for memory storage. I had a difficulty to find a managed service for RAG and Long-term Memory, as well as the structured data storage. Mem0 seems having everything.

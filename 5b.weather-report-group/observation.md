@@ -1,5 +1,7 @@
 # Observations on 5b.weather-report-group
 
+This app is based on the sequential chat in <https://microsoft.github.io/autogen/0.2/docs/tutorial/conversation-patterns>.
+
 I invited an expert of measurement (metrologist) into the chat. He is going to tell us what the local units of measure are in a given location.
 
 ## Conversation Sequence (intended)
