@@ -9,4 +9,5 @@ I followed AutoGen Tutorial <https://microsoft.github.io/autogen/0.2/docs/tutori
 * Bank Loan Application Review for nested chat, tool use, RAG
   * credit review
   * KYC review
-* Try to borrow money from a friend
+* software development team consists of product manager, engineering, executor and reviewer (tester)
+
