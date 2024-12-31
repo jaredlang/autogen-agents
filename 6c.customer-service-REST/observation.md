@@ -58,3 +58,4 @@ I believe QA is the main way to communicate with the agents. That's the most nat
 
 1. API spec download and analysis are required for any API service call. It should be stored in the memory for the future use.
 2. The requests lib is not included in the docker image. I wonder if it is possible to use some custom images with popular libs preloaded.
+3. We all say AI gets better than we use it more because it can learn. How can an agent learn from the past conversation?
