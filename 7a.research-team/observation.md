@@ -2,7 +2,6 @@
 
 The research team is another use case of a group chat, similar to the dev team. This is based on <https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat_research#create-group-chat-without-critic-for-comparison>
 
-
 The team is made up of agents with specific roles. It is to go through a typical research workflow: planning, review, create and execute.  
 
 ## Changes on the existing Source Code

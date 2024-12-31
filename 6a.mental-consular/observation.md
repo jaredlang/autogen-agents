@@ -1,5 +1,7 @@
 # Observations on 6a.mental-consular
 
+This app is based on the sequential chat in <https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_memory_using_mem0>.
+
 ## A different Use Case
 
 Technically this example is almost identical to 6.customer-service. But this is a different use case. Customer Service is more fact search, which requires a quick and accurate response. 6a.mental-consular requires a gentle and compassionate conversation. It needs more language skills and a broad knowledge in general.
