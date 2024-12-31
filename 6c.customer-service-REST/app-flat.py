@@ -83,7 +83,7 @@ code_executor = ConversableAgent(
 )
 
 group_chat = GroupChat(
-    [user_proxy, product_manager, engineer, code_executor],
+    [user_proxy, engineer, code_executor],
     messages=[],
     max_round=50,
 )
@@ -93,10 +93,14 @@ group_chat_manager = GroupChatManager(group_chat, llm_config=claude_llm_config)
 if __name__ == "__main__":
 
     # user_request = "find products from https://mpk-inventory.azurewebsites.net/products"
+    # user_request = """
+    # Add a new product (manufacturer: Xiaomi, product: dragon-01) to the inventory website: https://mpk-inventory.azurewebsites.net/products
+    # Please refer to the website OpenAPI specification at https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml
+    # """
     user_request = """
-    Add a new product (manufacturer: Xiaomi, product: dragon-01) to the inventory website: https://mpk-inventory.azurewebsites.net/products
+    Find 'iPhone 15' products from the inventory website: https://mpk-inventory.azurewebsites.net/
     Please refer to the website OpenAPI specification at https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml
-    """
+    """    
 
     with Cache.disk() as cache:
         # user_proxy.initiate_chat(product_manager, message=user_request, cache=cache)
