@@ -15,3 +15,10 @@
 1. Introduce a dev manager that "contain" the dev chat within the dev agents, and report the result to user_proxy.
 2. Keep getting the mysterious errors. See [som-eng-error-msg.txt](./som-eng-error-msg.txt) when using only engineer.
 3. A similar error. See [som-pm-error-msg.txt](./som-pm-error-msg.txt) when adding product manager.
+
+## app-flat.py updates
+
+1. try a more complex task. GPT4o failed with the error [add-product-error-msg.txt](./add-product-error-msg.txt), while **Claude scored**!
+
+> Add a new product (manufacturer: Xiaomi, product: dragon-01) to the inventory website: https://mpk-inventory.azurewebsites.net/products
+> Please refer to the website OpenAPI specification at https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml

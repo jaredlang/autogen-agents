@@ -15,6 +15,16 @@ gpt4o_llm_config = {
     "config_list": [{"model": "gpt-4o", "api_key": os.getenv("OPENAI_API_KEY")}],
 }
 
+claude_llm_config = {
+    "config_list": [
+        {
+            "model": "claude-3-5-sonnet-20240620",
+            "api_key": os.getenv("ANTHROPIC_API_KEY"),
+            "api_type": "anthropic",
+        }
+    ]
+}
+
 user_proxy = UserProxyAgent(
     name="user_proxy",  # "user assistant" threw an error. see user-assistant-error-msg.txt
     code_execution_config=False,  # we don't want to execute code in this case.
@@ -22,7 +32,7 @@ user_proxy = UserProxyAgent(
 
 product_manager = AssistantAgent(
     name="product manager",
-    llm_config=gpt4o_llm_config,
+    llm_config=claude_llm_config,
     system_message="You are a product manager. Come up with a product design to accomplish the user's request. You do not write code."
 )
 
@@ -43,7 +53,7 @@ When you find an answer, verify the answer carefully. Include verifiable evidenc
 
 engineer = ConversableAgent(
     name="Engineer",
-    llm_config=gpt4o_llm_config,
+    llm_config=claude_llm_config,
     system_message=code_writer_system_message,
 #     system_message="""Engineer. You follow an approved plan. You write python/shell code to solve tasks. Wrap the code in a code block that specifies the script type. The user can't modify your code. So do not suggest incomplete code which requires others to modify. Don't use a code block if it's not intended to be executed by the executor.
 # Don't include multiple code blocks in one response. Do not ask others to copy and paste the result. Check the execution result returned by the executor.
@@ -57,6 +67,7 @@ temp_dir = tempfile.TemporaryDirectory()
 # Create a Docker command line code executor.
 docker_executor = DockerCommandLineCodeExecutor(
     image="python:3.12-slim",  # Execute code using the given docker image name.
+    # image="python:3.12",
     timeout=60,  # Timeout for each code execution in seconds.
     work_dir=temp_dir.name,  # Use the temporary directory to store the code files.
 )
@@ -77,11 +88,15 @@ group_chat = GroupChat(
     max_round=50,
 )
 
-group_chat_manager = GroupChatManager(group_chat, llm_config=gpt4o_llm_config)
+group_chat_manager = GroupChatManager(group_chat, llm_config=claude_llm_config)
 
 if __name__ == "__main__":
 
-    user_request = "find products from https://mpk-inventory.azurewebsites.net/products"
+    # user_request = "find products from https://mpk-inventory.azurewebsites.net/products"
+    user_request = """
+    Add a new product (manufacturer: Xiaomi, product: dragon-01) to the inventory website: https://mpk-inventory.azurewebsites.net/products
+    Please refer to the website OpenAPI specification at https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml
+    """
 
     with Cache.disk() as cache:
         # user_proxy.initiate_chat(product_manager, message=user_request, cache=cache)
