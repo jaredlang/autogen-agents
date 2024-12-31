@@ -14,20 +14,7 @@ from autogen.coding import DockerCommandLineCodeExecutor
 import agentops
 
 gpt4o_llm_config = {
-    "cache_seed": 42,  # change the cache_seed for different trials
-    "temperature": 0,
     "config_list": [{"model": "gpt-4o", "api_key": os.getenv("OPENAI_API_KEY")}],
-    "timeout": 120,
-}
-
-claude_llm_config = {
-    "config_list": [
-        {
-            "model": "claude-3-5-sonnet-20240620",
-            "api_key": os.getenv("ANTHROPIC_API_KEY"),
-            "api_type": "anthropic",
-        }
-    ]
 }
 
 # Create a temporary directory to store the code files.
@@ -47,10 +34,10 @@ user_proxy = UserProxyAgent(
 
 product_manager = AssistantAgent(
     name="Product Manager",
-    is_termination_msg=termination_msg,
-    system_message="You are a product manager. Reply `TERMINATE` in the end when everything is done.",
     llm_config=gpt4o_llm_config,
+    system_message="You are a product manager. Reply `TERMINATE` in the end when everything is done.",
     description="""As a product manager, you are able to understand the customer's request and outline the requirements for engineer to write the code to fulfill the request. You don't write code.""",
+    is_termination_msg=termination_msg,
 )
 
 product_analyst = RetrieveUserProxyAgent(
@@ -132,10 +119,13 @@ groupchat = GroupChat(
 
 if __name__ == "__main__":
 
-    user_request = """
-    Get a list of products from this web service, https://mpk-inventory.azurewebsites.net/. 
-    The product manager knows the web service's OpenAPI specification.
-    """
+    # user_request = """
+    # Get a list of products from this web service, https://mpk-inventory.azurewebsites.net/. 
+    # The product manager knows the web service's OpenAPI specification.
+    # """
+    # user_request = "find products from https://mpk-inventory.azurewebsites.net/products"
+    user_request = "How to use spark for parallel training in FLAML? Give me sample code."
+
 
     agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"), default_tags=["autogen", "customer-service-REST"])
 

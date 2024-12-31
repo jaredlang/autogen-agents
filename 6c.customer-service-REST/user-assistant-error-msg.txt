@@ -1,0 +1,47 @@
+(.venv) PS C:\source\ai.dev\autogen-agent> python .\6c.customer-service-REST\app-bare.py
+user assistant (to product manager):
+
+Tell me a joke.
+
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\source\ai.dev\autogen-agent\6c.customer-service-REST\app-bare.py", line 26, in <module>
+    user_proxy.initiate_chat(assistant, message=user_request)
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py", line 1115, in initiate_chat
+    self.send(msg2send, recipient, silent=silent)
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py", line 749, in send
+    recipient.receive(message, self, request_reply, silent)
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py", line 915, in receive
+    reply = self.generate_reply(messages=self.chat_messages[sender], sender=sender)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py", line 2070, in generate_reply
+    final, reply = reply_func(self, messages=messages, sender=sender, config=reply_func_tuple["config"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py", line 1437, in generate_oai_reply
+    extracted_response = self._generate_oai_reply_from_client(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py", line 1456, in _generate_oai_reply_from_client
+    response = llm_client.create(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\oai\client.py", line 777, in create
+    response = client.create(params)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\oai\client.py", line 342, in create
+    response = completions.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\openai\_utils\_utils.py", line 275, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\openai\resources\chat\completions.py", line 859, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\openai\_base_client.py", line 1280, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\openai\_base_client.py", line 957, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\openai\_base_client.py", line 1061, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Invalid 'messages[1].name': string does not match pattern. Expected a string that matches the pattern '^[a-zA-Z0-9_-]+$'.", 'type': 'invalid_request_error', 'param': 'messages[1].name', 'code': 'invalid_value'}}
+(.venv) PS C:\source\ai.dev\autogen-agent> python .\6c.customer-service-REST\app-bare.py
