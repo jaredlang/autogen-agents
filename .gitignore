@@ -8,6 +8,7 @@ __pycache__/
 
 # env
 .env
+OAI_CONFIG_LIST
 
 # tmp
 tmp/
