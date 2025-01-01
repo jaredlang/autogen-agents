@@ -1,6 +1,7 @@
+flaml[automl]
 autogen-agentchat~=0.2
 autogen-agentchat[anthropic]~=0.2
 autogen-agentchat[retrievechat]~=0.2
-flaml[automl]
+autogen-agentchat[teachable]~=0.2
 agentops
 mem0ai
