@@ -1,4 +1,4 @@
-# Observations on 7b.resume-optimzer-team
+# Observations on 7b.resume-optimizer-team
 
 This app is inspired by <https://github.com/ShawhinT/AI-Builders-Bootcamp-2/blob/main/lightning-lesson/resume_optimizer_example.ipynb>.
 
@@ -17,6 +17,7 @@ In some case, an agent may not be necessary. But I want to apply what I have lea
 3. Markdown is a very convenient format to preserve some format and structure in a pure text format.
 4. Tool use is the link between the old world and the new.
 5. I also want to explore how to get a structured data from a text returned by LLM and feed it to the old-world function call. I may be able to wrap a function to ask LLM to parse the input text and trigger a tool function call.
+6. chomadb is using sqlit3 as the underlying database.
 
 ## Next Steps
 
@@ -24,3 +25,5 @@ In some case, an agent may not be necessary. But I want to apply what I have lea
 * Do a similar job on the resume.
 * Make the tool function more generic.
 * Add a weight to each section.
+* Add some web UI like Gradio for web access.
+* Use chromadb cloud or Mongodb Atlas to store the review results.
