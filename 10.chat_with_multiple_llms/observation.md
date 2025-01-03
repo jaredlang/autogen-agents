@@ -8,3 +8,4 @@ This example allows a better control on the speaker sequence.
   a. Even when I set human_input_model with NEVER and code_execution_config with False, which are the default values of UserAssistant, the conversation between the agent and the user_proxy becomes an infinite loop.
 2. I switched UserAssistant. It seems having better handling on when to terminate the conversation so the chat can continue.
 3. Claude was smart enough to write code to google the internet, while GPT4o just returned a canned response.
+4. Sometimes the chat seems chaotic. It doesn't work in the same way every time.
