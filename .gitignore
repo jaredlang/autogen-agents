@@ -13,6 +13,7 @@ OAI_CONFIG_LIST
 # tmp
 tmp/
 temp/
+resume-test-data/
 
 # Distribution / packaging
 .Python
