@@ -5,6 +5,8 @@ from autogen import UserProxyAgent, ConversableAgent, AssistantAgent
 from autogen.agentchat.contrib.capabilities.teachability import Teachability
 from autogen.formatting_utils import colored
 
+import agentops
+
 gpt4o_llm_config = {
     "config_list": [{"model": "gpt-4o", "api_key": os.getenv("OPENAI_API_KEY")}],
     "timeout": 120,
@@ -32,11 +34,12 @@ def create_teachable_agent(
     # config_list = config_list_from_json(env_or_file=OAI_CONFIG_LIST, filter_dict=filter_dict, file_location=KEY_LOC)
 
     # Start by instantiating any agent that inherits from ConversableAgent.
-    teachable_agent = AssistantAgent(
+    teachable_agent = ConversableAgent(
         name=agent_name,  # The name is flexible, but should not contain spaces to work in group chat.
         llm_config=llm_config,  # Disable caching.
-        # human_input_mode="NEVER",  # That is default value of AssistantAgent.
-        # code_execution_config=False,  # That is default value of AssistantAgent.
+        human_input_mode="NEVER",  # That is default value of AssistantAgent.
+        code_execution_config=False,  # That is default value of AssistantAgent.
+        system_message="Reply 'TERMINATE' in the end when everything is done."
     )
 
     # Instantiate the Teachability capability. Its parameters are all optional.
@@ -112,6 +115,7 @@ async def interact_freely_with_user(user_input: str):
 
 
 if __name__ == "__main__":
+    agentops.init(os.getenv("AGENTOPS_API_KEY"), default_tags=["chat_with_multiple_llms", "a_initiate_chats", "ConversableAgent"])
     """Lets the user test a teachable agent interactively."""
     asyncio.run(
         interact_freely_with_user(
@@ -120,3 +124,4 @@ if __name__ == "__main__":
             # "which one is a better LLM model, GPT-4o or Claude?"
         )
     )
+    agentops.end_session("Success")
