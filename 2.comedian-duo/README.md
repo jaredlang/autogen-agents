@@ -12,10 +12,10 @@ On each agent, set the termination config.
 
 ## Training Course on deeplearning.ai
 
-<https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen>
+<https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/2/multi-agent-conversation-and-stand-up-comedy>
 
 1. *generate_reply* invoke an agent to act, but it doesn't preserve the history. *initiate_chat* does.
-2. By default, AutoGen uses cache to generate the same response to the same input. 
+2. By default, AutoGen uses cache to generate the same response to the same input.
   a. **Without specifying cache, where is the cache stored?**
 3. By default, the chat summary is the last response.
 4. To get the summary of the whole conversation, use *summary_method* and *summary_prompt*.
