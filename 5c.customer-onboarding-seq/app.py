@@ -3,7 +3,8 @@ from autogen import ConversableAgent, initiate_chats
 
 gpt4o_llm_config = {
     "config_list": [
-        {"model": "gpt-4o-mini", "api_key": os.getenv("OPENAI_API_KEY")},
+        # {"model": "gpt-3.5-turbo", "api_key": os.getenv("OPENAI_API_KEY")},
+        # {"model": "gpt-4o-mini", "api_key": os.getenv("OPENAI_API_KEY")},
         {"model": "gpt-4o", "api_key": os.getenv("OPENAI_API_KEY")},
     ]
 }
@@ -71,11 +72,12 @@ seqential_chats = [
         "message": "Hello, I'm here to help you get started with our product. Could you tell me your name and location?",
         "summary_method": "reflection_with_llm",
         "summary_args": {
-            "summary_prompt": "Return the customer information into as JSON object only: {'name': '', 'location': ''}",
+            "summary_prompt": """Return the customer information as JSON object only:
+                             {'name': '', 'location': ''} """
         },
         # when 2 is specified, the agent always ask the question twice, 
         # even when the user provides the information in the first turn
-        "max_turns": 2,
+        "max_turns": 1,
         "clear_history": True,
     },
     {
