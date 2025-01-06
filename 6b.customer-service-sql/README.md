@@ -1,5 +1,7 @@
 # Observations on 6b. Customer Services with SQL Agent
 
+Give an agent the sql query capability as well as the memory search on the chat history. Wow!
+
 ## Two references
 
 1. <https://github.com/microsoft/autogen/issues/28>
