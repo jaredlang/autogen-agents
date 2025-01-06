@@ -9,3 +9,34 @@ On each agent, set the termination config.
 - is_termination_msg. A critiera is defined as a function and determine if a chat is to be terminated.
 - max_consecutive_auto_reply. The max number of auto replies.
 - max_turns. The max number of times an agent speaks.
+
+## Training Course on deeplearning.ai
+
+<https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen>
+
+1. *generate_reply* invoke an agent to act, but it doesn't preserve the history. *initiate_chat* does.
+2. By default, AutoGen uses cache to generate the same response to the same input.
+3. By default, the chat summary is the last response.
+4. To get the summary of the whole conversation, use *summary_method* and *summary_prompt*.
+
+```python
+chat_result = joe.initiate_chat(
+    cathy, 
+    message="I'm Joe. Cathy, let's keep the jokes rolling.", 
+    max_turns=2, 
+    summary_method="reflection_with_llm",
+    summary_prompt="Summarize the conversation",
+)
+```
+
+## Chat termination
+
+- define max_turns. This approach doesn't prepare any memory in agents. The following line doesn't produce a response from Joe.
+
+```python
+cathy.send(message="What's last joke we talked about?", recipient=joe)
+```
+
+- define a keyword to end the conversation. This approach does prepare any memory in agents. Joe remembers the last joke.
+
+**Why is there such a discrepency?**
