@@ -21,7 +21,7 @@ This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/code
 
 L5_Coding_and_Financial_Analysis.ipynb is from <https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/6/coding-and-financial-analysis>.
 
-- It shows the system prompt of AssistantAgent. **Reading the system prompt is a great way to learn how to write an effective prompt.**
+- It shows the system prompt of AssistantAgent. **Reading the system prompt is a great way to learn how to write an effective prompt.** And you can customize the system message for specific tasks.
 
 ```python
 code_writer_agent_system_message = code_writer_agent.system_message
@@ -40,7 +40,7 @@ code_writer_agent_system_message += executor.format_functions_for_prompt()
 print(code_writer_agent_system_message)
 ```
 
-- The user-written functions need to have **detailed descriptions on its input and output as well as the purpose**.
+- The user-written functions need to have **detailed descriptions on its input and output as well as the purpose**. What happens if the user-written function is too? It would be better to wrap it into a web service.
 
 ```python
 def get_stock_prices(stock_symbols, start_date, end_date):
