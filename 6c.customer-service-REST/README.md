@@ -28,8 +28,8 @@ I believe QA is the main way to communicate with the agents. That's the most nat
 
 1. try a more complex task. GPT4o failed with the error [add-product-error-msg.txt](./add-product-error-msg.txt), while **Claude scored**!
 
-> Add a new product (manufacturer: Xiaomi, product: dragon-01) to the inventory website: https://mpk-inventory.azurewebsites.net/products
-> Please refer to the website OpenAPI specification at https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml
+> Add a new product (manufacturer: Xiaomi, product: dragon-01) to the inventory website: <https://mpk-inventory.azurewebsites.net/products>
+> Please refer to the website OpenAPI specification at <https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml>
 
 ## app-som.py update-1
 
