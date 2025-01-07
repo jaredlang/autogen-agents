@@ -24,3 +24,8 @@ openai.BadRequestError: Error code: 400 - {'error': {'message': "Invalid 'messag
 C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\conversable_agent.py:1277: UserWarning: Cannot extract summary using reflection_with_llm: Error code: 400 - {'error': {'message': "Invalid 'messages[0].name': string does not match pattern. Expected a string that matches the pattern '^[a-zA-Z0-9_-]+$'.", 'type': 'invalid_request_error', 'param': 'messages[0].name', 'code': 'invalid_value'}}. Using an empty str as summary.
   warnings.warn(
 ```
+
+## The invalid_request_error is fixed
+
+I found this post at <https://stackoverflow.com/questions/78649446/autogen-groupchat-error-code-openai-badrequesterror-error-code-400>
+I removed the space from the agent names. **It solved the problem.**

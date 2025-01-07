@@ -20,7 +20,7 @@ claude_llm_config = {
 }
 
 onboarding_personal_information_agent = ConversableAgent(
-    name="Onboarding Personal Information Agent",
+    name="Onboarding_Personal_Information_Agent",
     system_message="""You are a helpful customer onboarding agent,
     you are here to help new customers get started with our product.
     Your job is to gather customer's name and location.
@@ -32,7 +32,7 @@ onboarding_personal_information_agent = ConversableAgent(
 )
 
 onboarding_topic_preference_agent = ConversableAgent(
-    name="Onboarding Topic preference Agent",
+    name="Onboarding_Topic_preference_Agent",
     system_message="""You are a helpful customer onboarding agent,
     you are here to help new customers get started with our product.
     Your job is to gather customer's preferences on news topics.
@@ -44,7 +44,7 @@ onboarding_topic_preference_agent = ConversableAgent(
 )
 
 customer_engagement_agent = ConversableAgent(
-    name="Customer Engagement Agent",
+    name="Customer_Engagement_Agent",
     system_message="""You are a helpful customer service agent
     here to provide fun for the customer based on the user's
     personal information and topic preferences.
