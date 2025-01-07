@@ -16,3 +16,11 @@ This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/code
 6. When running it for the second time, the code-writer still uses the non-existing field name 'Adj Close'.
 7. After I installed the libs and switched to gpt-4o, it was able to plot the stock gains properly.
 8. It is always safer to use the Docker execution than the local execution.
+
+## Training Course on deeplearning.ai
+
+L5_Coding_and_Financial_Analysis.ipynb is from <https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/6/coding-and-financial-analysis>.
+
+1. It shows the system prompt of AssistantAgent and how to instruct the agent to use pre-written functions.
+2. This demostrated human coders can collaborate with the code writing agent.
+3. The user-written functions need to have detailed descriptions on its input and output as well as the purpose.
