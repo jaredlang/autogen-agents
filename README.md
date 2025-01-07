@@ -2,7 +2,8 @@
 
 ## Follow the Tutorial
 
-I followed AutoGen Tutorial <https://microsoft.github.io/autogen/0.2/docs/tutorial/>
+I followed AutoGen Tutorial <https://microsoft.github.io/autogen/0.2/docs/tutorial/>.
+I also found the course in Deeplearning.ai very helpufl <https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen>.
 
 ## Use Cases jumping into my mind
 
