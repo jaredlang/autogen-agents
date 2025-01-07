@@ -27,5 +27,6 @@ C:\source\ai.dev\autogen-agent\.venv\Lib\site-packages\autogen\agentchat\convers
 
 ## The invalid_request_error is fixed
 
-I found this post at <https://stackoverflow.com/questions/78649446/autogen-groupchat-error-code-openai-badrequesterror-error-code-400>
+I found this post at <https://stackoverflow.com/questions/78649446/autogen-groupchat-error-code-openai-badrequesterror-error-code-400>.
+
 I removed the space from the agent names. **It solved the problem.**

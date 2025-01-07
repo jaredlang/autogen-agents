@@ -7,7 +7,7 @@ It also be used in the podcast creation, fraud detection, document validation an
 
 <https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/4/reflection-and-blogpost-writing>
 
-1. A nest chat is a 'silo' conversation within a team. This use case is perfect.
+1. A nested chat is a 'silo' conversation within a team. This use case is perfect.
 2. The nested chat is 'hidden' from the writer, but the writer is the trigger for critic.
 3. The critic agent becomes a mere relay between writer and a team of reviewers.
 4. The json format adds some structure to the feedback text, especially when the text comes from multiple reviewers.

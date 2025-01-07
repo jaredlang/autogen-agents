@@ -10,7 +10,7 @@ I invited an expert of measurement (metrologist) into the chat. He is going to t
 sequenceDiagram
 user_proxy ->> metrologist: what are the local units of measure in Beijing?
 metrologist -->> user_proxy: ~the local units~
-user_proxy --> meteorologist ->> Describe the weather in Beijing using its local standard units of measure.
+user_proxy --> meteorologist: Describe the weather in Beijing using its local standard units of measure.
 meteorologist ->> get_weather: argument-"Beijing" argument-"metric" 
 get_weather -->> meteorologist: weather data in json
 meteorologist --x user_proxy: human readable weather report
