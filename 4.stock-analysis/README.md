@@ -40,24 +40,20 @@ code_writer_agent_system_message += executor.format_functions_for_prompt()
 print(code_writer_agent_system_message)
 ```
 
-- The user-written functions need to have **detailed descriptions on its input and output as well as the purpose**. What happens if the user-written function is too? It would be better to wrap it into a web service.
+- The user-written functions need to have **detailed descriptions on its input and output as well as the purpose**. What happens if the user-written function is too? It would be better to wrap it into a web service. The agent can write additional code complementary with the given functions.
 
 ```python
 def get_stock_prices(stock_symbols, start_date, end_date):
-    """Get the stock prices for the given stock symbols between
-    the start and end dates.
+    """Get the stock prices for the given stock symbols between the start and end dates.
 
     Args:
-        stock_symbols (str or list): The stock symbols to get the
-        prices for.
-        start_date (str): The start date in the format 
-        'YYYY-MM-DD'.
+        stock_symbols (str or list): The stock symbols to get the prices for.
+        start_date (str): The start date in the format 'YYYY-MM-DD'.
         end_date (str): The end date in the format 'YYYY-MM-DD'.
     
     Returns:
         pandas.DataFrame: The stock prices for the given stock
-        symbols indexed by date, with one column per stock 
-        symbol.
+        symbols indexed by date, with one column per stock symbol.
     """
     import yfinance
 

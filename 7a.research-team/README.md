@@ -15,7 +15,9 @@ The changes I added to the AutoGen example.
 
 ## Training Course in Deeplearning.ai
 
-One of the downsides with a group chat is the uncertainty of the speaker selection. It depends on the group chat manager. When the conversation gets longer, the manager is less likely able to select a speaker appropriately. 
+<https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/7/planning-and-stock-report-generation>
+
+One of the downsides with a group chat is the uncertainty of the speaker selection. It depends on the group chat manager. When the conversation gets longer, the manager is less likely able to select a speaker appropriately.
 
 - <L6-Planning_and_Stock_Report_Generation.ipynb> demonstrates how the speaker transition can be specified with a disallowed or allowed dictionary.
 
