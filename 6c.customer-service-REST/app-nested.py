@@ -5,11 +5,8 @@ from autogen import (
     AssistantAgent,
     UserProxyAgent,
     ConversableAgent,
-    GroupChat,
-    GroupChatManager,
 )
 from autogen.coding import DockerCommandLineCodeExecutor
-from autogen.agentchat.contrib.society_of_mind_agent import SocietyOfMindAgent
 from autogen import Cache
 
 gpt4o_llm_config = {
@@ -36,14 +33,14 @@ user_proxy = UserProxyAgent(
 )
 
 product_manager = AssistantAgent(
-    name="product manager",
-    llm_config=claude_llm_config,
+    name="product_manager",
+    llm_config=gpt4o_llm_config,
     system_message="You are a product manager. Come up with a product design to accomplish the user's request. You do not write code."
 )
 
 dev_manager = AssistantAgent(
-    name="software development manager",
-    llm_config=claude_llm_config,
+    name="software_development_manager",
+    llm_config=gpt4o_llm_config,
     system_message="You are a software development manager. Rely the output of software_engineer and code_executor. You do not write code."
 )
 
@@ -63,8 +60,8 @@ When you find an answer, verify the answer carefully. Include verifiable evidenc
 """
 
 software_engineer = AssistantAgent(
-    name="Software Engineer",
-    llm_config=claude_llm_config,
+    name="Software_Engineer",
+    llm_config=gpt4o_llm_config,
     system_message=code_writer_system_message,
 #     system_message="""Engineer. You follow an approved plan. You write python/shell code to solve tasks. Wrap the code in a code block that specifies the script type. The user can't modify your code. So do not suggest incomplete code which requires others to modify. Don't use a code block if it's not intended to be executed by the executor.
 # Don't include multiple code blocks in one response. Do not ask others to copy and paste the result. Check the execution result returned by the executor.
@@ -98,7 +95,7 @@ code_executor = ConversableAgent(
 code_executor_proxy = AssistantAgent(
     name="code_executor_proxy",
     is_termination_msg=termination_msg,
-    llm_config=claude_llm_config,
+    llm_config=gpt4o_llm_config,
 )
 
 def deliver_requirement(recipient, messages, sender, config):
@@ -125,7 +122,7 @@ if __name__ == "__main__":
 
     # user_request = "find products from https://mpk-inventory.azurewebsites.net/products"
     user_request = """
-    Find flagship-900 products from the inventory website: https://mpk-inventory.azurewebsites.net/
+    Find Galaxy 24 products from the inventory website: https://mpk-inventory.azurewebsites.net/
     Please refer to the website OpenAPI specification at https://raw.githubusercontent.com/jaredlang/sample-services/refs/heads/main/inventory/inventory-query-service-api-spec.yaml
     """
 

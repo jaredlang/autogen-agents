@@ -31,8 +31,8 @@ user_proxy = UserProxyAgent(
 )
 
 product_manager = AssistantAgent(
-    name="product manager",
-    llm_config=claude_llm_config,
+    name="product_manager",
+    llm_config=gpt4o_llm_config,
     system_message="You are a product manager. Come up with a product design to accomplish the user's request. You do not write code."
 )
 
@@ -53,7 +53,7 @@ When you find an answer, verify the answer carefully. Include verifiable evidenc
 
 engineer = ConversableAgent(
     name="Engineer",
-    llm_config=claude_llm_config,
+    llm_config=gpt4o_llm_config,
     system_message=code_writer_system_message,
 #     system_message="""Engineer. You follow an approved plan. You write python/shell code to solve tasks. Wrap the code in a code block that specifies the script type. The user can't modify your code. So do not suggest incomplete code which requires others to modify. Don't use a code block if it's not intended to be executed by the executor.
 # Don't include multiple code blocks in one response. Do not ask others to copy and paste the result. Check the execution result returned by the executor.
@@ -88,7 +88,7 @@ group_chat = GroupChat(
     max_round=50,
 )
 
-group_chat_manager = GroupChatManager(group_chat, llm_config=claude_llm_config)
+group_chat_manager = GroupChatManager(group_chat, llm_config=gpt4o_llm_config)
 
 if __name__ == "__main__":
 
