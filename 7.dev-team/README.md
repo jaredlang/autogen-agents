@@ -17,4 +17,4 @@ Besides, it includes someone with access to confidential material. That's common
 
 <https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/7/planning-and-stock-report-generation>
 
-- *system_message* is an instruction on how an agent should behave, which is accessible to the agent itself. *description* is a description of what the agent is. That infomration is visible to other agents and group chat manager. Imagine that *description* is the signature of a python (input, output and what it does) while *system_message* is the internal logic of how it completes the task.
+- **system_message** is an instruction on how an agent should behave, which is accessible to the agent itself. **description** is a description of what the agent is. That infomration is visible to other agents and group chat manager. Imagine that *description* is the signature of a python (input, output and what it does) while *system_message* is the internal logic of how it completes the task.
