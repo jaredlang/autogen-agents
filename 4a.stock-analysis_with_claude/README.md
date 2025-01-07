@@ -1,4 +1,4 @@
-# Observation on 4.accounting
+# Observation on 4.4.stock-analysis_with_claude
 
 This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/code-executors>.
 

@@ -1,4 +1,4 @@
-# Observation on 4.accounting
+# Observation on 4.stock-analysis
 
 This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/code-executors>.
 
@@ -21,6 +21,48 @@ This app is based on <https://microsoft.github.io/autogen/0.2/docs/tutorial/code
 
 L5_Coding_and_Financial_Analysis.ipynb is from <https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen/lesson/6/coding-and-financial-analysis>.
 
-1. It shows the system prompt of AssistantAgent and how to instruct the agent to use pre-written functions.
-2. This demostrated human coders can collaborate with the code writing agent.
-3. The user-written functions need to have detailed descriptions on its input and output as well as the purpose.
+- It shows the system prompt of AssistantAgent. **Reading the system prompt is a great way to learn how to write an effective prompt.**
+
+```python
+code_writer_agent_system_message = code_writer_agent.system_message
+print(code_writer_agent_system_message)
+```
+
+- It also demostrates how to **instruct the agent to use pre-written functions**, which allows collaboration between human coders and the code writing agent.
+
+```python
+executor = LocalCommandLineCodeExecutor(
+    timeout=60,
+    work_dir="coding",
+    functions=[get_stock_prices, plot_stock_prices],
+)
+code_writer_agent_system_message += executor.format_functions_for_prompt()
+print(code_writer_agent_system_message)
+```
+
+- The user-written functions need to have **detailed descriptions on its input and output as well as the purpose**.
+
+```python
+def get_stock_prices(stock_symbols, start_date, end_date):
+    """Get the stock prices for the given stock symbols between
+    the start and end dates.
+
+    Args:
+        stock_symbols (str or list): The stock symbols to get the
+        prices for.
+        start_date (str): The start date in the format 
+        'YYYY-MM-DD'.
+        end_date (str): The end date in the format 'YYYY-MM-DD'.
+    
+    Returns:
+        pandas.DataFrame: The stock prices for the given stock
+        symbols indexed by date, with one column per stock 
+        symbol.
+    """
+    import yfinance
+
+    stock_data = yfinance.download(
+        stock_symbols, start=start_date, end=end_date
+    )
+    return stock_data.get("Close")
+```
