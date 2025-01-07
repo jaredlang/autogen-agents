@@ -117,7 +117,7 @@ critic = AssistantAgent(
 groupchat = GroupChat(
     agents=[user_proxy, engineer, scientist, planner, code_executor, critic],
     messages=[],
-    max_round=50,
+    max_round=10,
 )
 
 manager = GroupChatManager(groupchat=groupchat, llm_config=gpt4o_llm_config)
