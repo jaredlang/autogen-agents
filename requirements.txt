@@ -4,6 +4,7 @@ autogen-agentchat[anthropic]==0.2.40
 autogen-agentchat[retrievechat]==0.2.40
 autogen-agentchat[teachable]==0.2.40
 # autogen-agentchat[autobuild]==0.2.40 --> ERROR: Failed building wheel for pysqlite3
+pysqlite3-binary
 agentops
 mem0ai
 pymongo
