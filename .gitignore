@@ -8,6 +8,7 @@ __pycache__/
 
 # Visual Code 
 .vscode/
+.devcontainer/
 
 # env
 .env
