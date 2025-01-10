@@ -6,4 +6,5 @@ autogen-agentchat[teachable]==0.2.40
 # autogen-agentchat[autobuild]==0.2.40 --> ERROR: Failed building wheel for pysqlite3
 agentops
 mem0ai
+pymongo
 streamlit
