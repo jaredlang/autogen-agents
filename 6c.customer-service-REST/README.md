@@ -61,3 +61,35 @@ I believe QA is the main way to communicate with the agents. That's the most nat
 3. We all say AI gets better than we use it more because it can learn. How can an agent learn from the past conversation?
 4. Investigate the errors: *Invalid 'messages[2].name'*, *'Expected a string that matches the pattern '^[a-zA-Z0-9_-]+$'.'*
   a. This error is caused by the space in the agent name. '^[a-zA-Z0-9_-]+$' allows no space. This solution was suggested in <https://stackoverflow.com/questions/78649446/autogen-groupchat-error-code-openai-badrequesterror-error-code-400>.
+
+## app-rag.py update-1
+
+1. Add streamlit to make it an app.
+2. The local env is working fine. But I ran into an issue with sqlite3 when deploying it to streamlit.
+3. The first one was with autogen-agentchat[autobuild]==0.2.40 --> ERROR: Failed building wheel for pysqlite3
+4. The second issue was **streamlit: Your system has an unsupported version of sqlite3. Chroma requires sqlite3 >= 3.35.0**.
+5. Upgraded python to 3.12.8, which was suspected to be an issue.
+6. Finally, fixed the issues with Chromadb and sqlite3. This post was a savior, <https://stackoverflow.com/questions/76958817/streamlit-your-system-has-an-unsupported-version-of-sqlite3-chroma-requires-sq>.
+7. But the code changes are only needed for the streamlit deployment.
+8. However, when it runs on streamlit, run into a chromadb runtime error: 
+
+```text
+ValueError: Could not connect to tenant default_tenant. Are you sure it exists?
+2025-01-10 23:46:02.518 Uncaught app execution
+Traceback (most recent call last):
+  File "/home/adminuser/venv/lib/python3.12/site-packages/chromadb/api/client.py", line 417, in _validate_tenant_database
+    self._admin_client.get_tenant(name=tenant)
+  File "/home/adminuser/venv/lib/python3.12/site-packages/chromadb/api/client.py", line 461, in get_tenant
+    return self._server.get_tenant(name=name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adminuser/venv/lib/python3.12/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 150, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/adminuser/venv/lib/python3.12/site-packages/chromadb/api/segment.py", line 181, in get_tenant
+    return self._sysdb.get_tenant(name=name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adminuser/venv/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py", line 141, in get_tenant
+    row = cur.execute(sql, params).fetchone()
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+pysqlite3.dbapi2.OperationalError: no such table: tenants
+```
